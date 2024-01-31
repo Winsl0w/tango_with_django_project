@@ -4,8 +4,14 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-        #html = "<!DOCTYPE html><html><a href='/rango/about/'>About</a></html>"
-        return HttpResponse("Rango says hey there!" + "<a href='/rango/about/'>About</a>")
+        # From TWD: Construct a dictionary to pass to the template engine as its context
+        # Note the key boldmessage matches to {{ boldmessage }} in the template
+        context_dict = {"boldmessage" : "Crunchy, creamy, cookie, candy, cupcake!"}
+
+        # From TWD: Return a rendered response to send to the client
+        # We make use of the shortcut funciton to make thigs easier
+        # not ethat the first parameter is the template we want to use 
+        return render(request, "rango/index.html", context = context_dict)
 
 
 def about(request):
