@@ -16,14 +16,13 @@ Homepage
         <br />
         <strong>{{ boldmessage }}</strong>
     </div>
-    
     <h2>Most Liked Categories</h2>
     <div>
     {% if categories %}
         <ul>
             {% for category in categories %}
             <li>
-                <a href="{% url 'rango:show_category' category.slug}">{{ category.name }}</a>
+                <a href="{% url 'rango:show_category' category_name_slug=category.slug %}">{{ category.name }}</a>
             </li>
             {% endfor %}
         </ul>
